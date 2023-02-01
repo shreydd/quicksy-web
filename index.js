@@ -7,7 +7,7 @@ import Error from "./src/Error";
 const AppLayout = () => {
     return (
         <>
-            <h1>quicksy web</h1>
+            <h1 className="heading">Quick<span>sy</span></h1>
             <Body />
         </>
     )

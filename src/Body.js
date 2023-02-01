@@ -1,18 +1,25 @@
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+import Card from "../src/Card";
 
 const Body =() => {
 
-    // const userGivenParams = useParams();
-    // const {tag} = userGivenParams;
     const [searchParams, setSearchParams] = useSearchParams();
 
     const tag = searchParams.get('tag')
     const val = searchParams.get('val')
 
+    const tagArray = (tag).split(",")
+    const valArray = (val).split(",")
+
     return (
         <>
-            <p>tag: {tag} </p>
-            <p>val: {val} </p>
+            <div className="cards-container">
+                {
+                    tagArray.map((item, index) => {
+                        return <Card tag={item} val={valArray[index]} />
+                    })
+                }
+            </div>
         </>
     )
 }
